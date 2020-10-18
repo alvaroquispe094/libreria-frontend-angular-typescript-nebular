@@ -1,0 +1,73 @@
+
+<div class="container">
+    <!-- <div class="col-lg-10 col-xl-10" > -->
+    <div class="row mb-3 mt-3">  
+      <div class="col-lg-12 col-xl-12" >
+      <nb-card fullWidth>
+        <nb-card-header><h6>Filtros de busqueda</h6></nb-card-header>
+        <nb-card-body>
+          <div class="row mb-3">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mb-4">
+          
+              <!-- <form class="form-inline">-->
+                <div class="row">
+                  <div class="col-xs-12 col-sm-12 col-md-3 col-lg-2 col-xl-2">
+                    <input type="text" nbInput fullWidth placeholder="Nombre libro">
+                  </div>
+                  <div class="col-xs-12 col-sm-12 col-md-3 col-lg-2 col-xl-2">
+                    <input type="text" nbInput fullWidth placeholder="Editorial">
+                  </div>
+                  <div class="col-xs-12 col-sm-12 col-md-3 col-lg-2 col-xl-2">
+                    <input type="text" nbInput fullWidth placeholder="Numero paginas">
+                  </div>
+                  <div class="col-xs-12 col-sm-12 col-md-3 col-lg-2 col-xl-2">
+                    <input type="text" nbInput fullWidth placeholder="precio">
+                  </div>
+                  <div class="col-xs-12 col-sm-12 col-md-3 col-lg-2 col-xl-2">
+                    <nb-select placeholder="Genero" class="nonePadding col-xs-12 col-sm-12 col-md-3 col-lg-12 col-xl-12">
+                      <nb-option   ></nb-option>
+          
+                    </nb-select>
+                  </div>
+                  
+                  <div class="col-xs-12 col-sm-12 col-md-3 col-lg-2 col-xl-2">
+                    <a nbButton status="primary">Filtrar</a>
+                  </div>
+                </div>
+              <!--</form> -->
+             
+            </div>
+          </div>
+        </nb-card-body>
+      </nb-card> 
+      </div> 
+    </div>
+
+    <div class="row mb-3">	
+      <div class="col-lg-3 col-xl-3" *ngFor="let book of books" >
+        <!-- listado de libros -->
+        <nb-card class="cards card-shadow">
+          <nb-card-header class="p-0 cards-top">
+            <a  href="javascript:void(0)" (click)="detail(book.id)"><img class="card-img-top" src="/assets/images/empty.png"></a>
+            <!-- <a (click)="detail(book.id)" ><img class="card-img-top" src="/assets/images/empty.png"/></a> -->
+            <div class="middle">
+              <a  href="javascript:void(0)" (click)="detail(book.id)"><i class="fas fa-search fa-lg" style="color:white;" ></i></a>
+            </div>
+          </nb-card-header>
+          <nb-card-body class="text-center lead">
+            <span>{{book.nombre}}</span>
+            
+            <p class="pt-2"><strong><span>${{book.precio}}</span></strong></p>
+            <div class=" text-center">
+              <!-- <button nbButton class="btn btn-secondary gap-right ml-1" (click)="ResetForm()">Limpiar</button> -->
+              <!-- <button type="submit" status="info"><i class="fas fa-cart-plus"></i>&nbsp;&nbsp;Add to Cart</button> -->
+              <button class="btn btn-info btn-block" (click)="addCart(book)" >
+                <i class="fas fa-cart-plus" ></i>&nbsp;&nbsp;<strong>ADD TO CART</strong>
+              </button>
+            </div>
+          </nb-card-body>
+        </nb-card>
+      </div>
+      
+    </div>
+</div>

@@ -1,0 +1,82 @@
+<div class="row mt-5">
+    <div class="col-lg-4 col-xl-4 offset-lg-4 offset-xl-4">
+      <nb-card>
+        
+        <nb-card-header>Contacto </nb-card-header>
+        
+        <nb-card-body>
+        
+          <form [formGroup]="contactoForm" (ngSubmit)="sendMessage()" novalidate>
+            <div class="row">
+              <div class="col-lg-12 col-md-12 col-sm-12 col-xl-12">
+                <div class="row">
+          
+                  <div class="col-md-12 mb-3">
+                    <label class="label">Nombre</label>
+                    <input nbInput fullWidth formControlName="nombre" [(ngModel)]="contacto.nombre" class="form-control" required>
+                    <!-- Showing errors using getter method -->
+                    <p *ngIf="nombre.touched && nombre.invalid" class="error text-danger"><sup>*</sup>Please enter atleast first name</p>
+                    <p *ngIf="nombre.errors?.minlength" class="error text-danger"><sup>*</sup>Name shouldn't be less than 2 words</p>
+                  </div>
+                </div>      
+          
+                <div class="row">
+                  <div class="col-md-12 mb-3">
+                    <label class="label">Email</label>
+                    <input nbInput fullWidth formControlName="email" [(ngModel)]="contacto.email" class="form-control" required>
+                    <!-- Showing errors using getter method -->
+                    <p *ngIf="email.touched && email.invalid" class="error text-danger"><sup>*</sup>Please provide email</p>
+                    <p *ngIf="email.errors?.pattern" class="error text-danger"><sup>*</sup>Please enter a valid email</p>
+                  </div>
+                </div>  
+  
+                <div class="row">  
+                  <div class="col-md-12 mb-3">
+                    <label class="label">Telefono</label>
+                    <input nbInput fullWidth formControlName="telefono" [(ngModel)]="contacto.telefono" class="form-control" required>
+                    <!-- Showing errors using getter method -->
+                    <p *ngIf="telefono.touched && telefono.invalid" class="error text-danger"><sup>*</sup>Please provide user</p>
+                    <p *ngIf="telefono.errors?.minlength" class="error text-danger"><sup>*</sup>User shouldn't be less than 2 words</p>
+                  </div>
+          
+                </div>
+  
+                <div class="row">
+          
+                  <div class="col-md-12 mb-3">
+                    <label class="label">Mensaje</label>
+                    <textarea nbInput fullWidth formControlName="mensaje" [(ngModel)]="contacto.mensaje" class="form-control" required></textarea>
+                    <!-- Showing errors using getter method -->
+                    <p *ngIf="mensaje.touched && mensaje.invalid" class="error text-danger"><sup>*</sup>Please provide password</p>
+                    <p *ngIf="mensaje.errors?.minlength" class="error text-danger"><sup>*</sup>Name shouldn't be less than 2 words</p>
+                  </div>
+                </div>
+          
+                <div class="form-group text-right">
+                  <button nbButton status="primary" class=" gap-right ml-1" (click)="resetForm()">Limpiar</button>
+                  <button nbButton status="primary" type="submit" class=" ml-1" [disabled]="!contactoForm.valid">
+                    <nb-icon icon="paper-plane-outline" pack="eva"></nb-icon>Enviar
+                  </button>
+                </div>
+          
+              </div>
+            </div>
+          </form>
+          
+        </nb-card-body>
+      </nb-card>  
+    </div>
+  </div>
+   
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
