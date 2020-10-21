@@ -32,6 +32,11 @@ import { DetalleComponent } from './landing/detalle/detalle.component';
 import { NbRoleProvider, NbSecurityModule } from '@nebular/security';
 import { RoleProvider } from './@core/service/authentication/roleProvider';
 import { RouterModule } from '@angular/router';
+import { BookService } from './@core/service/libro/libro.service';
+import { UsuarioService } from './@core/service/usuario/usuario.service';
+import { MensajeService } from './@theme/components/message/mensaje.service';
+import { MenuService } from './pages/menu.service';
+import { RolService } from './@core/service/rol/rol.service';
 
 @NgModule({
   declarations: [AppComponent],
@@ -57,7 +62,8 @@ import { RouterModule } from '@angular/router';
     
   ],
   bootstrap: [AppComponent],
-  providers: [authenticationService,
+  providers: [BookService, MenuService, UsuarioService, RolService,
+    authenticationService, MensajeService,
     { provide: NbRoleProvider, useClass: RoleProvider },
    
   ],

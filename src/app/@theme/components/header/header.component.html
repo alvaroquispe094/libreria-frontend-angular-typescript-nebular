@@ -20,10 +20,10 @@
       <!-- <div *ngFor="let item of menu ; let i = index" > -->
         <nb-action  class="control-item p-0 " *ngFor="let item of getMenuByRole()"   [title]='item.title'  >
     
-          <!-- <nb-user  class="ml-3" *ngIf="item.user_image"
+          <nb-user  class="ml-3" *ngIf="item.user_image"
               [name]="userName"
              [picture]="user.url">
-          </nb-user> -->
+          </nb-user>
           <a nbButton ghost [routerLink]='item.link' routerLinkActive="active" class="ml-1">
             
           <nb-icon [icon]="item.icon" pack="eva" class="ml-1"></nb-icon>

@@ -20,11 +20,11 @@ export class BookService {
 
   getBooks():  Observable<any> {
     debugger;
-    return this.http.get(`${this.API_URI}/books`);
+    return this.http.get(`${this.API_URI}/books`, {headers:this.getHeader()});
   }
 
   getBook(id: string|number) : Observable<any>{
-    return this.http.get(`${this.API_URI}/book/${id}`);
+    return this.http.get(`${this.API_URI}/book/${id}`, {headers:this.getHeader()});
   }
 
   deleteBook(id: string) {

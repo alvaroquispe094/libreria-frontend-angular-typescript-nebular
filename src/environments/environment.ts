@@ -10,5 +10,6 @@
 
 export const environment = {
   production: false,
-  url: 'http://localhost:8080/api/admin'
+  url: 'http://localhost:8080/api/admin',
+  url_auth: 'http://localhost:8080/api/auth'
 };

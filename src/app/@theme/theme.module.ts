@@ -13,6 +13,7 @@ import {
   NbSelectModule,
   NbIconModule,
   NbThemeModule,
+  NbAlertModule,
 } from '@nebular/theme';
 import { NbEvaIconsModule } from '@nebular/eva-icons';
 import { NbSecurityModule } from '@nebular/security';
@@ -44,6 +45,7 @@ import { DARK_THEME } from './styles/theme.dark';
 import { MATERIAL_LIGHT_THEME } from './styles/material/theme.material-light';
 import { MATERIAL_DARK_THEME } from './styles/material/theme.material-dark';
 import { RouterModule } from '@angular/router';
+import { MessageComponent } from './components/message/message.component';
 
 const NB_MODULES = [
   RouterModule, //agregado para poder usar routerLink en theme module
@@ -59,12 +61,14 @@ const NB_MODULES = [
   NbSelectModule,
   NbIconModule,
   NbEvaIconsModule,
+  NbAlertModule,
 ];
 const COMPONENTS = [
   SwitcherComponent,
   LayoutDirectionSwitcherComponent,
   HeaderComponent,
   FooterComponent,
+  MessageComponent,
   SearchInputComponent,
   OneColumnLayoutComponent,
   ThreeColumnsLayoutComponent,

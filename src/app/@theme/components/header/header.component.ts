@@ -97,6 +97,9 @@ export class HeaderComponent implements OnInit, OnDestroy {
     
     //setting name user
     this.userName = this.authenticationService.leerUsuario()
+    
+    //setting name user
+    this.userName = this.authenticationService.leerUsuario()
 
     const { xl } = this.breakpointService.getBreakpointsMap();
     this.themeService.onMediaQueryChange()
@@ -143,6 +146,11 @@ debugger;
     this.username = this.authenticationService.leerUsuario();
     debugger;
     return this.username;
+  }
+
+  salir(){
+    debugger;
+    this.authenticationService.logout();
   }
 
   ngOnDestroy() {

@@ -5,5 +5,6 @@
  */
 export const environment = {
   production: true,
-  url: 'https://libreria-prisma-backend.herokuapp.com/api/admin'
+  url: 'https://libreria-prisma-backend.herokuapp.com/api/admin',
+  url_auth: 'https://libreria-prisma-backend.herokuapp.com/api/auth'
 };

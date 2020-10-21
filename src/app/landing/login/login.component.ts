@@ -56,31 +56,31 @@ export class LoginComponent implements OnInit {
 
   login(): void {
     debugger
-    // this.authenticationService.login(this.loginForm.value)
-    // .pipe(takeUntil(this.destroy$))
-    // .subscribe(
-    //   res => {
-    //     // debugger;
-    //     localStorage.setItem('token', res.token)
-    //     localStorage.setItem('usuario', res.usuario)
-    //     localStorage.setItem('role', res.authorities[0].authority)
+     this.authenticationService.login(this.loginForm.value)
+     .pipe(takeUntil(this.destroy$))
+     .subscribe(
+       res => {
+         // debugger;
+         localStorage.setItem('token', res.token)
+         localStorage.setItem('usuario', res.usuario)
+         localStorage.setItem('role', res.authorities[0].authority)
        
-    //     debugger;
-    //     this.islogged = true;
-    //     if(localStorage.getItem("role") == "ROLE_ADMIN" || localStorage.getItem("role") == "ROLE_RECEPTIONIST")
-    //       this.router.navigate(['/pages/dashboard'], { relativeTo: this.activatedRoute });
-    //     else{
-    //       this.router.navigate(['/pages/resumen'], { relativeTo: this.activatedRoute });  
-    //     }  
-    //   },
-    //   err => console.error("error login(): " +err)     
-    // );
+         debugger;
+         this.islogged = true;
+         if(localStorage.getItem("role") == "ROLE_ADMIN" || localStorage.getItem("role") == "ROLE_RECEPTIONIST")
+           this.router.navigate(['/pages/dashboard'], { relativeTo: this.activatedRoute });
+         else{
+           this.router.navigate(['/pages/resumen'], { relativeTo: this.activatedRoute });  
+         }  
+       },
+       err => console.error("error login(): " +err)     
+     );
   }
 
   salir(){
     debugger;
     this.islogged = false;
-    // this.authenticationService.logout();
+    this.authenticationService.logout();
   }
 
    getConfigValue(key: string): any {

@@ -1,0 +1,144 @@
+<div class="row mt-2">
+  <div class="col-lg-6 col-xl-6 offset-lg-3 offset-xl-3">
+    <nb-card>
+      
+      <nb-card-header>Registro </nb-card-header>
+      
+      <nb-card-body>
+
+        <form [formGroup]="usuarioForm" (ngSubmit)="edit ? updateUsuario() : saveUsuario()" novalidate>
+          <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xl-12">
+              <div class="row">
+        
+                <div class="col-md-12 mb-3">
+                  <label class="label">Nombre</label>
+                  <input nbInput fullWidth formControlName="nombre" [(ngModel)]="user.nombre" class="form-control" required>
+                  <!-- Showing errors using getter method -->
+                  <p *ngIf="nombre.touched && nombre.invalid" class="error text-danger"><sup>*</sup>Please enter atleast first name</p>
+                  <p *ngIf="nombre.errors?.minlength" class="error"><sup>*</sup>Name shouldn't be less than 2 words</p>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-12 mb-3">
+                  <label class="label">Apellido</label>
+                  <input nbInput fullWidth formControlName="apellido" [(ngModel)]="user.apellido" class="form-control">
+                  <!-- Showing errors using getter method -->
+                  <p *ngIf="apellido.touched && apellido.invalid" class="error text-danger"><sup>*</sup>Please provide surname</p>
+                  <p *ngIf="apellido.errors?.minlength" class="error"><sup>*</sup>Surname shouldn't be less than 2 words</p>
+                </div>
+        
+              </div>
+        
+              <div class="row">
+                <div class="col-md-12 mb-3">
+                  <label class="label">Email</label>
+                  <input nbInput fullWidth formControlName="email" [(ngModel)]="user.email" class="form-control" required>
+                  <!-- Showing errors using getter method -->
+                  <p *ngIf="email.touched && email.invalid" class="error text-danger"><sup>*</sup>Please provide email</p>
+                  <p *ngIf="email.errors?.pattern" class="error"><sup>*</sup>Please enter correct email</p>
+                </div>
+              </div>  
+
+              <div class="row">  
+                <div class="col-md-12 mb-3">
+                  <label class="label">Usuario</label>
+                  <input nbInput fullWidth formControlName="usuario" [(ngModel)]="user.usuario" class="form-control" required>
+                  <!-- Showing errors using getter method -->
+                  <p *ngIf="usuario.touched && usuario.invalid" class="error text-danger"><sup>*</sup>Please provide user</p>
+                  <p *ngIf="usuario.errors?.minlength" class="error text-danger"><sup>*</sup>User shouldn't be less than 2 words</p>
+                </div>
+        
+              </div>
+
+              <div class="row">
+        
+                <div class="col-md-12 mb-3">
+                  <label class="label">Contraseña</label>
+                  <!-- <fieldset [disabled]="edit"> -->
+                    <input nbInput fullWidth formControlName="password" [disabled]="edit" [(ngModel)]="user.password" class="form-control" required>
+                  <!-- </fieldset> -->
+                  <!-- Showing errors using getter method -->
+                  <p *ngIf="password.touched && password.invalid" class="error text-danger"><sup>*</sup>Please provide password</p>
+                  <p *ngIf="password.errors?.minlength" class="error text-danger"><sup>*</sup>Name shouldn't be less than 2 words</p>
+                </div>
+              </div>
+
+              <div class="row">
+        
+                <div class="col-md-12 mb-3">
+                  <label class="label">Dirección</label>
+                  <input nbInput fullWidth formControlName="direccion" [(ngModel)]="user.direccion" class="form-control" required>
+                  <!-- Showing errors using getter method -->
+                  <p *ngIf="direccion.touched && direccion.invalid" class="error text-danger"><sup>*</sup>Please provide address</p>
+                  <p *ngIf="direccion.errors?.minlength" class="error text-danger"><sup>*</sup>Name shouldn't be less than 2 words</p>
+                </div>
+              </div>
+
+              <div class="row">
+        
+                <div class="col-md-12 mb-3">
+                  <label class="label">Fecha de nacimiento</label>
+                  <input nbInput fullWidth formControlName="fechaNacimiento" [(ngModel)]="user.fechaNacimiento" class="form-control" required>
+                  <!-- Showing errors using getter method -->
+                  <p *ngIf="fechaNacimiento.touched && fechaNacimiento.invalid" class="error text-danger"><sup>*</sup>Please provide date</p>
+                  <p *ngIf="fechaNacimiento.errors?.minlength" class="error text-danger"><sup>*</sup>Name shouldn't be less than 2 words</p>
+                </div>
+              </div>
+              
+              <div class="row">
+        
+                <div class="col-md-12 mb-3">
+                  <label class="label">Documento</label>
+                  <input nbInput fullWidth formControlName="documento" [(ngModel)]="user.documento" class="form-control" required>
+                  <!-- Showing errors using getter method -->
+                  <p *ngIf="documento.touched && documento.invalid" class="error text-danger"><sup>*</sup>Please provide document</p>
+                  <p *ngIf="documento.errors?.minlength" class="error text-danger"><sup>*</sup>Name shouldn't be less than 2 words</p>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-12 mb-3 col-lg-12 col-xl-12">
+                  <label class="label">Rol</label>
+                  <select formControlName="rol" [(ngModel)]="user.rol.id" class="form-control mb-3 mt-2 col-lg-12 col-xl-12 p-0" placeholder="Seleccione rol">
+                   
+                    <option *ngFor="let item of roles" [value]="item.id"> {{ item.rol_nombre }}</option>
+                  </select>  
+                  <p *ngIf="rol.touched && rol.invalid" class="error text-danger"><sup>*</sup>Please provide Role</p>
+                  <p *ngIf="rol.errors?.minlength" class="error text-danger"><sup>*</sup>Name shouldn't be less than 2 words</p>
+                </div>
+              </div>
+
+              <div class="row">
+        
+                <div class="col-md-12 mb-3">
+                  <nb-checkbox fullWidth formControlName="activo" [(ngModel)]="user.activo" status="control">Activo?</nb-checkbox>
+                </div>
+              </div>
+        
+              <div class="form-group text-right">
+                <button nbButton class="btn btn-secondary gap-right ml-1" [disabled]="edit" (click)="resetForm()">Limpiar</button>
+                <button nbButton type="submit" class="btn btn-success ml-1" [disabled]="!usuarioForm.valid">Guardar</button>
+              </div>
+        
+            </div>
+          </div>
+        </form><!-- Student form ends-->
+    
+      </nb-card-body>
+    </nb-card>  
+  </div>
+</div>
+ 
+
+
+
+
+
+
+
+
+
+
+

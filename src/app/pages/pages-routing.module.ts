@@ -3,6 +3,8 @@ import { NgModule } from '@angular/core';
 
 import { PagesComponent } from './pages.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { ResumenComponent } from './resumen/resumen.component';
+
 
 const routes: Routes = [{
   path: '',
@@ -11,6 +13,20 @@ const routes: Routes = [{
     {
       path: 'dashboard',
       component: DashboardComponent,
+    },
+    {
+      path: 'resumen',
+      component: ResumenComponent,
+    },
+    {
+      path: 'seccion-libros',
+      loadChildren: () => import('./seccion-libros/seccion-libros.module')
+        .then(m => m.FormsModule),
+    },
+    {
+      path: 'seccion-usuarios',
+      loadChildren: () => import('./seccion-usuarios/seccion-usuarios.module')
+        .then(m => m.FormsModule),
     },
     {
       path: '',
