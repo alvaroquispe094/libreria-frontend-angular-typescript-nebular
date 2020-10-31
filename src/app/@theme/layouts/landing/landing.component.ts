@@ -10,13 +10,13 @@ import { Component} from '@angular/core';
       </nb-layout-header>
     
       <nb-layout-column class="p-0">
-        
+        <message></message>
         <ng-content select="router-outlet"></ng-content>
+        <ngx-footer-landing></ngx-footer-landing>
       </nb-layout-column>
 
-      <nb-layout-footer class="p-0">
-        <ngx-footer></ngx-footer>
-      </nb-layout-footer>
+      
+      
     </nb-layout>
   `,
   })

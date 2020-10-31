@@ -99,7 +99,6 @@ export class AuthenticationService {
     if (localStorage.getItem('usuario')) {
       return  localStorage.getItem('usuario');
     } else {
-      debugger;
       return '';
     }
     // debugger;

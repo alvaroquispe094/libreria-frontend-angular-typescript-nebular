@@ -8,6 +8,7 @@ import { Router, ActivatedRoute } from '@angular/router';
     <landing>
       <router-outlet></router-outlet>
     </landing>
+    <ngx-footer-landing></ngx-footer-landing>
   `,
 })
 export class LandingComponent {

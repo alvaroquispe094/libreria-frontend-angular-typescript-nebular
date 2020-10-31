@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { LandingRoutingModule } from './landing-routing.module';
 import { ThemeModule } from '../@theme/theme.module';
-import { NbMenuModule, NbInputModule, NbCardModule, NbButtonModule, NbActionsModule, NbUserModule, NbCheckboxModule, NbRadioModule, NbDatepickerModule, NbSelectModule, NbIconModule, NbAlertModule, NbSearchModule } from '@nebular/theme';
+import { NbMenuModule, NbInputModule, NbCardModule, NbButtonModule, NbActionsModule, NbUserModule, NbCheckboxModule, NbRadioModule, NbDatepickerModule, NbSelectModule, NbIconModule, NbAlertModule, NbSearchModule, NbSpinnerModule } from '@nebular/theme';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { IndexComponent } from './index/index.component';
 import { LandingComponent } from './landing.component';
@@ -16,10 +16,11 @@ import { NosotrosComponent } from './nosotros/nosotros.component';
 import { CatalogoComponent } from './catalogo/catalogo.component';
 import { CartComponent } from './cart/cart.component';
 import { DetalleComponent } from './detalle/detalle.component';
+import { SpinnerComponent } from '../@theme/components/spinner/spinner.component';
 @NgModule({
   declarations: [
     // CommonModule,
-  LandingComponent,
+    LandingComponent,
     IndexComponent,
     LoginComponent,
     RegisterComponent,
@@ -35,6 +36,7 @@ import { DetalleComponent } from './detalle/detalle.component';
     ThemeModule,
     NbMenuModule,
     NbInputModule,
+    NbSpinnerModule,
     NbCardModule,
     NbButtonModule,
     NbActionsModule,

@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { Router, ActivatedRoute } from '@angular/router';
 import { UsuarioDto } from '../../@core/dto/usuarioDto';
+import { UsuarioService } from '../../@core/service/usuario/usuario.service';
+import { MensajeService } from '../../@theme/components/message/mensaje.service';
 
 @Component({
   selector: 'ngx-register',
@@ -10,6 +13,7 @@ import { UsuarioDto } from '../../@core/dto/usuarioDto';
 export class RegisterComponent implements OnInit {
 
   public usuarioForm: FormGroup;  // Define FormGroup to student's form
+  loading: boolean = false;
   user: UsuarioDto = {
     id:'',
     nombre: '',
@@ -28,7 +32,7 @@ export class RegisterComponent implements OnInit {
     activo: true,
   };
 
-  constructor(public fb: FormBuilder/*, private usuarioService: UsuarioService*/) {} 
+  constructor(public fb: FormBuilder,private mensajeService: MensajeService, private usuarioService: UsuarioService, private router: Router, private activatedRoute: ActivatedRoute) {} 
 
   ngOnInit() {
 
@@ -83,6 +87,28 @@ export class RegisterComponent implements OnInit {
   ResetForm() {
     this.usuarioForm.reset();
   }  
+
+  saveUsuario(){
+    console.log(this.user);
+    this.toggleLoadingAnimation();
+    debugger;
+    this.usuarioService.saveUsuario(this.user)
+      .subscribe(
+        res => {
+          console.log(res);
+          debugger;
+          this.mensajeService.success(res.mensaje, "success");
+          this.router.navigate(['/landing/registro'], { relativeTo: this.activatedRoute });
+        },
+        err => console.error(err)
+      )
+  }
+
+  toggleLoadingAnimation() {
+    this.loading = true;
+    setTimeout(() => this.loading = false, 2000);
+  }
+
   submitStudentData() {
     // this.user = this.usuarioForm.value;
     debugger;

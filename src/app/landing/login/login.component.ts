@@ -1,10 +1,11 @@
-import { ChangeDetectorRef, Component, Inject, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, Inject, OnInit, ViewChild } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 import { NbAuthSocialLink, NbAuthService, NB_AUTH_OPTIONS, getDeepFromObject } from '@nebular/auth';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { AuthenticationService } from '../../@core/service/authentication/authentication.service';
+import { SpinnerComponent } from '../../@theme/components/spinner/spinner.component';
 
 @Component({
   selector: 'ngx-login',
@@ -12,6 +13,8 @@ import { AuthenticationService } from '../../@core/service/authentication/authen
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
+
+  @ViewChild(SpinnerComponent) spiner: SpinnerComponent;
 
   private destroy$: Subject<void> = new Subject<void>();
   public loginForm: FormGroup;  // Define FormGroup to student's form
@@ -22,6 +25,7 @@ export class LoginComponent implements OnInit {
   errors: string[] = [];
   messages: string[] = [];
   user: any = {};
+  loading: boolean = false;
   // usuario: UsuarioLogin = {usuario: '',
   // password: '',};
   submitted: boolean = false;
@@ -46,7 +50,8 @@ export class LoginComponent implements OnInit {
                 
   }
   ngOnInit(): void {
-    
+    this.loading =  false;
+
     this.loginForm = this.fb.group({
       usuario: ['', [Validators.required, Validators.minLength(2)]],
       password: ['', [Validators.required, Validators.minLength(2)]],
@@ -55,6 +60,9 @@ export class LoginComponent implements OnInit {
   }
 
   login(): void {
+
+    this.toggleLoadingAnimation();
+    // this.loading =  this.spiner.loading;
     debugger
      this.authenticationService.login(this.loginForm.value)
      .pipe(takeUntil(this.destroy$))
@@ -75,6 +83,19 @@ export class LoginComponent implements OnInit {
        },
        err => console.error("error login(): " +err)     
      );
+  }
+
+  toggleLoadingAnimation() {
+    this.loading = true;
+    setTimeout(() => this.loading = false, 3000);
+  }
+
+  mostrarSpinner(){
+    this.spiner.toggleLoadingAnimation();
+  }
+
+  statusSpinner(){
+    return this.spiner.loading;
   }
 
   salir(){

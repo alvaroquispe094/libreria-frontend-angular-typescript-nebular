@@ -139,6 +139,8 @@ export class CrearUsuarioComponent implements OnInit {
       .subscribe(
         res => {
           console.log(res);
+          debugger;
+          // this.mensajeService.success(res.mensaje, "success");
           this.router.navigate(['/pages/seccion-usuarios/consulta'], { relativeTo: this.activatedRoute });
         },
         err => console.error(err)

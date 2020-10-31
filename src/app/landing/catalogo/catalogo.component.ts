@@ -15,6 +15,8 @@ export class CatalogoComponent implements OnInit {
 
   private destroy$: Subject<void> = new Subject<void>();
 
+  loading:boolean = false;
+
   books: Observable<BookDto[]>
 
   constructor(private bookService: BookService, private cartService:CartService, private router: Router, private activatedRoute: ActivatedRoute) { }
@@ -39,9 +41,15 @@ export class CatalogoComponent implements OnInit {
     this.router.navigate(['/../landing/detail', id ], { relativeTo: this.activatedRoute });
   }
 
+  toggleLoadingAnimation() {
+    this.loading = true;
+    setTimeout(() => this.loading = false, 250);
+  }
+
   public addCart(product:BookDto)
   {
     debugger;
+    this.toggleLoadingAnimation();
     this.cartService.changeCart(product);
     debugger;
   }

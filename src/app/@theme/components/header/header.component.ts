@@ -124,7 +124,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
     
     this.menuByRole = [];
     this.rol_actual = this.authenticationService.leerRol() !='' ? this.authenticationService.leerRol():'ROLE_GUEST';    //setando el rol actual  
-debugger;
+
     for (let i = 0; i < this.menu.length; i++){
       const roles = this.menu[i].role;
       

@@ -14,6 +14,8 @@ import {
   NbIconModule,
   NbThemeModule,
   NbAlertModule,
+  NbCardModule,
+  NbSpinnerModule,
 } from '@nebular/theme';
 import { NbEvaIconsModule } from '@nebular/eva-icons';
 import { NbSecurityModule } from '@nebular/security';
@@ -46,6 +48,8 @@ import { MATERIAL_LIGHT_THEME } from './styles/material/theme.material-light';
 import { MATERIAL_DARK_THEME } from './styles/material/theme.material-dark';
 import { RouterModule } from '@angular/router';
 import { MessageComponent } from './components/message/message.component';
+import { SpinnerComponent } from './components/spinner/spinner.component';
+import { FooterLandingComponent } from './components/footer-landing/footer-landing.component';
 
 const NB_MODULES = [
   RouterModule, //agregado para poder usar routerLink en theme module
@@ -61,6 +65,9 @@ const NB_MODULES = [
   NbSelectModule,
   NbIconModule,
   NbEvaIconsModule,
+  NbSpinnerModule,
+  NbCardModule,
+  NbSidebarModule,
   NbAlertModule,
 ];
 const COMPONENTS = [
@@ -68,9 +75,11 @@ const COMPONENTS = [
   LayoutDirectionSwitcherComponent,
   HeaderComponent,
   FooterComponent,
+  FooterLandingComponent,
   MessageComponent,
   SearchInputComponent,
   OneColumnLayoutComponent,
+  SpinnerComponent,
   ThreeColumnsLayoutComponent,
   TwoColumnsLayoutComponent,
   LandingContentComponent,

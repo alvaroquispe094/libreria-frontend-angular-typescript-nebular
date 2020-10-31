@@ -32,8 +32,8 @@ export class UsuarioService {
     return this.http.delete(`${this.API_URI}/usuario/delete/${id}`);
   }
 
-  saveUsuario(usuario: Usuario) {
-    const url: string = this.API_URI+'/usuario/add/';
+  saveUsuario(usuario: Usuario): Observable<any> {
+    const url: string = this.API_URI+'/usuario/add';
     debugger;
     return this.http.post(url, usuario, {headers:this.getHeader()});
   }
