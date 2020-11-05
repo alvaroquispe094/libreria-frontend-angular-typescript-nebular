@@ -88,10 +88,10 @@
   .menu-navbar { display: none; }
 }
 
-@media only screen and (min-width: 767px) and (max-width: 1068px) { 
-  /* Here are some changes*/
-  nb-layout-header nb-actions nb-action a { padding: 1px 1px !Important; }
-}
+// @media only screen and (min-width: 767px) and (max-width: 1068px) { 
+//   /* Here are some changes*/
+//   nb-layout-header nb-actions nb-action a { padding: 1px 1px !Important; }
+// }
 
 /* From 768 to 1023 px */
 // @media (min-width: @screen-sm) and (max-width: (@screen-md - 1))
