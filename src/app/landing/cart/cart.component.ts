@@ -27,7 +27,49 @@ export class CartComponent implements OnInit {
   public remove(producto:BookDto)
   {
    this._cartService.removeElementCart(producto);
+
   }
+
+  public sumar(producto:BookDto)
+  {
+   this._cartService.add(producto);
+   this._cartService.currentDataCart$.subscribe(x=>{
+    if(x)
+    {
+      this.items = x;
+      this.totalQuantity = x.length;
+      this.totalPrice = x.reduce((sum, current) => sum + (current.precio * current.cantidad), 0);
+    }
+  })
+  }
+
+  public restar(producto:BookDto)
+  {
+   this._cartService.subtract(producto);
+   this._cartService.currentDataCart$.subscribe(x=>{
+    if(x)
+    {
+      this.items = x;
+      this.totalQuantity = x.length;
+      this.totalPrice = x.reduce((sum, current) => sum + (current.precio * current.cantidad), 0);
+    }
+  })
+  }
+
+  public limpiar()
+  {
+    debugger;
+   this._cartService.clean();
+   this._cartService.currentDataCart$.subscribe(x=>{
+    if(x)
+    {
+      this.items = x;
+      this.totalQuantity = x.length;
+      this.totalPrice = x.reduce((sum, current) => sum + (current.precio * current.cantidad), 0);
+    }
+  })
+  }
+
 }
 
 

@@ -1,46 +1,121 @@
+<!-- <div class="header-container">
+  <div class="logo-container">
+    <a (click)="toggleSidebar()" href="#" class="sidebar-toggle">
+      <nb-icon icon="menu-2-outline"></nb-icon>
+    </a>
+    <a class="logo" href="/" routerLink='/' routerLinkActive="active" (click)="navigateHome()"><img [src]="logoURL.url"></a>
+  </div>
+</div>
 
-  <div class="header-container">
+<div class="header-container ">
+  <nb-actions size="small">
+      <nb-action  class="control-item p-0 " *ngFor="let item of getMenuByRole()"   [title]='item.title'  >
+        <nb-user  class="ml-3" *ngIf="item.user_image"
+            [name]="userName"
+           [picture]="user.url">
+        </nb-user>
+        <a nbButton ghost [routerLink]='item.link' routerLinkActive="active" class="ml-1">         
+        <nb-icon [icon]="item.icon" pack="eva" class="ml-1"></nb-icon>
+        <span>{{item.text}}</span>
+        </a>
+      </nb-action> 
+  </nb-actions>
+</div> -->
+  
+  <!-- <div class="header-container col-xl-4">
     <div class="logo-container">
-      <a (click)="toggleSidebar()" href="#" class="sidebar-toggle">
+      <a (click)="toggleSidebar()" href="#" class="sidebar-toggle" *ngIf="rol_actual != 'ROLE_GUEST'">
         <nb-icon icon="menu-2-outline"></nb-icon>
       </a>
-      <!--<a class="logo" href="/" (click)="navigateHome()"><img src='/../../../assets/images/logo.png'></a> -->
-      <!--<a class="logo" href="/" (click)="navigateHome()"><img [src]='logoUrl'></a>-->
-      <a class="logo" href="/" routerLink='/' routerLinkActive="active" (click)="navigateHome()"><img [src]="logoURL.url"></a>
+      <a routerLink='/' routerLinkActive="active" (click)="navigateHome()"><img [src]="logoURL.url"></a>
     </div>
-     <!-- <nb-select [selected]="currentTheme" (selectedChange)="changeTheme($event)" status="primary" class="col-lg-6 col-xl-6">
-      <nb-option *ngFor="let theme of themes" [value]="theme.value"> {{ theme.name }}</nb-option>
-    </nb-select> -->
-    <!-- <ngx-layout-direction-switcher class="direction-switcher"></ngx-layout-direction-switcher> -->
-  </div>
+  </div> -->
+  <!-- <div class="header-container"> -->
+  <!-- <nb-layout> -->
 
-  <div class="header-container ">
-    <nb-actions size="small">
-      <!-- carga los items del nav -->
-      <!-- <div *ngFor="let item of menu ; let i = index" > -->
+
+    <!-- <div class="header-container col-xl-4">
+      <div class="logo-container">
+        <a (click)="toggleSidebar()" href="#" class="sidebar-toggle" *ngIf="rol_actual != 'ROLE_GUEST'">
+          <nb-icon icon="menu-2-outline"></nb-icon>
+        </a>
+        <a routerLink='/' routerLinkActive="active" (click)="navigateHome()"><img [src]="logoURL.url"></a>
+      </div>
+  
+    </div> -->
+
+
+    <!-- <nb-layout-header class="p-0"> -->
+      <!-- <div class="logo-container">
+        <a (click)="toggleSidebar()" href="#" class="sidebar-toggle" *ngIf="rol_actual != 'ROLE_GUEST'">
+          <nb-icon icon="menu-2-outline"></nb-icon>
+        </a>
+        <a routerLink='/' routerLinkActive="active" (click)="navigateHome()"><img [src]="logoURL.url"></a>
+      </div> -->
+
+      <!-- <button outline nbButton [nbContextMenu]="getMenuByRole()" nbContextMenuPlacement="right">
+        Show Menu
+      </button>
+    </nb-layout-header> -->
+    <!-- <nb-layout-column class="colored-column-basic">Hello World!</nb-layout-column> -->
+  <!-- </nb-layout> -->
+<!-- </div> -->
+    <!-- <nb-layout-header fixed>
+      <nb-icon class="button-responsive" icon="menu-outline" (click)="sidebarService2.toggle()"></nb-icon>
+      <nb-actions class="left menu-responsive">
         <nb-action  class="control-item p-0 " *ngFor="let item of getMenuByRole()"   [title]='item.title'  >
-    
           <nb-user  class="ml-3" *ngIf="item.user_image"
               [name]="userName"
              [picture]="user.url">
           </nb-user>
-          <a nbButton ghost [routerLink]='item.link' routerLinkActive="active" class="ml-1">
-            
-          <nb-icon [icon]="item.icon" pack="eva" class="ml-1"></nb-icon>
-          <span>{{item.text}}</span>
-          </a>
-         
-          <!-- <a (click)="this[item.function]()" > -->
-            <!-- <nb-icon  pack="eva"></nb-icon>  -->
-            <!-- <span >{{item.text}}</span> -->
-            <!-- </a>  -->
-            <!-- <nb-search type="rotate-layout" (click)="salir()"></nb-search> -->
-            <!-- <a nbButton ghost  (click)="salir()">
-              
-            </a> -->
+          <a nbButton ghost [routerLink]='item.link' routerLinkActive="active" class="ml-1">           
+            <nb-icon [icon]="item.icon" pack="eva" class="ml-1"></nb-icon>
+            <span>{{item.text}}</span>
+          </a>  
         </nb-action> 
-          
-        <!-- <p>{{username}}</p> -->
-    </nb-actions>
+      </nb-actions>
+    </nb-layout-header>
+    <nb-sidebar #sidebar state="collapsed" class="button-responsive" nbContextMenuPlacement="right" fixed>
+      <nb-menu [items]="getMenuByRole()" ></nb-menu>
+    </nb-sidebar> -->
 
-  </div>
+
+
+    <!-- <div class="header-container col-xl-4">
+      <div class="logo-container">
+        <a (click)="toggleSidebar()" href="#" class="sidebar-toggle" *ngIf="rol_actual != 'ROLE_GUEST'">
+          <nb-icon icon="menu-2-outline"></nb-icon>
+        </a>
+        <a routerLink='/' routerLinkActive="active" (click)="navigateHome()"><img [src]="logoURL.url"></a>
+      </div>
+  
+    </div> -->
+
+    <nb-layout-header fixed>
+      <div class="logo-container w-25">
+        <a (click)="toggleSidebar()" href="#" class="sidebar-toggle" *ngIf="rol_actual != 'ROLE_GUEST'">
+          <nb-icon icon="menu-2-outline"></nb-icon>
+        </a>
+        <a routerLink='/' routerLinkActive="active" (click)="navigateHome()"><img [src]="logoURL.url"></a>
+      </div>
+
+      <nb-actions class="left menu-responsive w-75 justify-content-end">
+        <nb-action  class="control-item p-0 " *ngFor="let item of getMenuByRole()" [badgeText]="item.title == 'Cart'?totalItems : null" [badgeStatus]="item.badgeStatus" [title]='item.title'  >
+          <nb-user  class="ml-3" *ngIf="item.user_image"
+              [name]="userName"
+             [picture]="user.url">
+          </nb-user>
+          <a nbButton ghost [routerLink]='item.link' routerLinkActive="active" class="ml-1">           
+            <nb-icon [icon]="item.icon" pack="eva" class="ml-1"></nb-icon>
+            <span>{{item.text}}</span>
+          </a>  
+        </nb-action> 
+      </nb-actions>
+      <a (click)="toggleNavbar()" href="#" class="menu-navbar sidebar-toggle p-2" style="border: 1px solid rgba(0,0,0,0.5);">
+        <nb-icon class="button-responsive" icon="arrowhead-down-outline" ></nb-icon>
+      </a>
+
+    </nb-layout-header>
+    <nb-sidebar #sidebar state="collapsed"  class="menu-navbar mt-5 pt-4" tag="menu-navbar" nbContextMenuPlacement="right" responsive end fixed>
+      <nb-menu [items]="getMenuByRole()" ></nb-menu>
+    </nb-sidebar>

@@ -74,3 +74,48 @@
     }
   }
 }
+
+// :host nb-layout-header ::ng-deep nav {
+//   justify-content: flex-start;
+// }
+
+// :host nb-layout-header ::ng-deep nav logo-container{
+//   justify-content: flex-start;
+// }
+
+@media only screen and (min-width: 767px) { 
+  /* Here are some changes*/
+  .menu-navbar { display: none; }
+}
+
+@media only screen and (min-width: 767px) and (max-width: 1068px) { 
+  /* Here are some changes*/
+  nb-layout-header nb-actions nb-action a { padding: 0.6875rem 0.10rem !Important; }
+}
+
+/* From 768 to 1023 px */
+// @media (min-width: @screen-sm) and (max-width: (@screen-md - 1))
+// {
+//     .hide-sm { display: none; }
+// }
+
+// .button-responsive
+// {
+//     display:none
+// }
+
+// @media (max-width: 573px)
+// {
+//     .button-responsive
+//     {
+//         display:inline-block
+//     }
+//     .menu-responsive
+//     {
+//         display:none
+//     }
+// }
+
+// :host nb-layout-header ::ng-deep nav {
+//   justify-content: flex-end;
+// }

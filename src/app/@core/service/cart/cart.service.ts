@@ -12,6 +12,7 @@ export class CartService {
   public currentDataCart$ = this.cart.asObservable(); //Tenemos un observable con el valor actual del BehaviourSubject
 
   constructor() { }
+
   public changeCart(newData: BookDto) {
     //Obtenemos el valor actual
     let listCart = this.cart.getValue();
@@ -55,5 +56,74 @@ export class CartService {
       listCart.splice(objIndex,1);
     }
     this.cart.next(listCart); //Enviamos el valor a todos los Observers que estan escuchando nuestro Observable
+  }
+
+  add(newData:BookDto){
+    //Obtenemos el valor actual de carrito
+    let listCart = this.cart.getValue();
+    //Buscamos el item del carrito para eliminar
+    let objIndex = listCart.findIndex((obj => obj.id == newData.id));
+    if(objIndex != -1)
+    {
+      //Seteamos la cantidad en 1 (ya que los array se modifican los valores por referencia, si vovlemos a agregarlo la cantidad no se reiniciará)
+      listCart[objIndex].cantidad += 1;
+      //Eliminamos el item del array del carrito
+      // listCart.splice(objIndex,1);
+    }
+
+  }
+
+  subtract(newData:BookDto){
+    //Obtenemos el valor actual de carrito
+    let listCart = this.cart.getValue();
+    //Buscamos el item del carrito para eliminar
+    let objIndex = listCart.findIndex((obj => obj.id == newData.id));
+    if(objIndex != -1)
+    {
+      if(listCart[objIndex].cantidad > 1){
+
+        //Seteamos la cantidad en 1 (ya que los array se modifican los valores por referencia, si vovlemos a agregarlo la cantidad no se reiniciará)
+        listCart[objIndex].cantidad -= 1;
+        //Eliminamos el item del array del carrito
+        // listCart.splice(objIndex,1);
+      }else{
+        this.removeElementCart(newData);
+      }
+    }
+
+  }
+
+  clean(){
+    //Obtenemos el valor actual de carrito
+    let listCart = this.cart.getValue();
+    debugger;
+
+    listCart = [];
+    debugger;
+
+  }
+
+  // restar(id:number){
+  //   this.total=0;
+  //   this.carrito = new Array<Book>();
+  //   var lista = JSON.parse(localStorage.getItem('carrito'));
+    
+  //   if(lista != null){
+  //     for (let i = 0; i <Object.keys(lista).length ; i++) {
+  //       if(lista[i].id == id){
+  //         lista[i].cantidad = lista[i].cantidad - 1;
+  //       }
+  //       this.carrito.push (lista[i]);
+  //     }
+  //   }else{
+  //     this.carrito = [];
+  //   }
+  //   localStorage.setItem('carrito', JSON.stringify(this.carrito));
+  //   this.acumularTotal();
+  // }
+
+  public obtenerCantidadElementos(){
+    let listCart = this.cart.getValue();
+    return listCart.length;
   }
 }

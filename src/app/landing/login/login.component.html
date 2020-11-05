@@ -1,4 +1,4 @@
-<div class="container-fluid">
+<div class="container-fluid mt-3 mb-5">
 <div class="row mt-5">
     <div class="col-lg-4 col-xl-4 offset-lg-4 offset-xl-4">
       <nb-card [nbSpinner]="loading"  nbSpinnerStatus="primary">
@@ -15,9 +15,9 @@
           
                   <div class="col-md-12 mb-3">
                     <label class="label">User</label>
-                    <input nbInput fullWidth formControlName="usuario" class="form-control" placeholder="User/Email address" required>
+                    <input nbInput fullWidth formControlName="usuario" class="form-control" placeholder="Username" required>
                     <!-- Showing errors using getter method -->
-                    <p *ngIf="usuario.touched && usuario.invalid" class="error text-danger"><sup>*</sup>Please enter email or username</p>
+                    <p *ngIf="usuario.touched && usuario.invalid" class="error text-danger"><sup>*</sup>Please enter username</p>
                     <p *ngIf="usuario.errors?.minlength" class="error text-danger"><sup>*</sup>Name shouldn't be less than 2 words</p>
                   </div>
                 </div>

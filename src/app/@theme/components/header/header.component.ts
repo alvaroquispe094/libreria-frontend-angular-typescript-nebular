@@ -8,6 +8,7 @@ import { Subject, Observable } from 'rxjs';
 import { RippleService } from '../../../@core/utils/ripple.service';
 import { MENU_NAV } from '../../../landing/landing-menu';
 import { AuthenticationService } from '../../../@core/service/authentication/authentication.service';
+import { CartService } from '../../../@core/service/cart/cart.service';
 
 @Component({
   selector: 'ngx-header',
@@ -54,10 +55,12 @@ export class HeaderComponent implements OnInit, OnDestroy {
   ];
 
   currentTheme = 'default';
-
+  sidebarService2 :any;
   userMenu = [ { title: 'Profile' }, { title: 'Log out' } ];
   menuByRole: any[];
   username:string;
+  items:any;
+  totalItems:any;
 
   public constructor(
     private sidebarService: NbSidebarService,
@@ -68,9 +71,10 @@ export class HeaderComponent implements OnInit, OnDestroy {
     private breakpointService: NbMediaBreakpointsService,
     private rippleService: RippleService,
     private authenticationService: AuthenticationService,
+    private cartService: CartService,
   ) {
     this.username= 'sdgsdgdsgsdg'
-
+    this.sidebarService2 = sidebarService;
     this.materialTheme$ = this.themeService.onThemeChange()
       .pipe(map(theme => {
         const themeName: string = theme?.name || '';
@@ -79,6 +83,15 @@ export class HeaderComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
+    this.cartService.currentDataCart$.subscribe(x=>{
+      if(x)
+      {
+        this.items = x;
+        this.totalItems = x.length;
+  
+      }
+    })
+
     this.currentTheme = this.themeService.currentTheme;
 
     this.userService.getUsers()
@@ -142,6 +155,11 @@ export class HeaderComponent implements OnInit, OnDestroy {
     return this.menuByRole;
   }
 
+  setTotalItems(){
+    debugger;
+    this.totalItems = this.cartService.obtenerCantidadElementos();
+  }
+
   getUser(){
     this.username = this.authenticationService.leerUsuario();
     debugger;
@@ -164,6 +182,15 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   toggleSidebar(): boolean {
     this.sidebarService.toggle(true, 'menu-sidebar');
+    this.sidebarService.collapse('menu-navbar')
+    this.layoutService.changeLayoutSize();
+
+    return false;
+  }
+
+  toggleNavbar(): boolean {
+    this.sidebarService.toggle(true, 'menu-navbar');
+    this.sidebarService.collapse('menu-sidebar')
     this.layoutService.changeLayoutSize();
 
     return false;

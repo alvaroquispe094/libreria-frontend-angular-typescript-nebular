@@ -50,6 +50,8 @@ export const MENU_NAV: any[] = [
         icon: 'shopping-cart-outline',
         link: '/landing/cart',
         text: '',
+        badgeText:"99+",
+        badgeStatus:"info",
         function: '',
         user_image : false,
         role: ['ROLE_GUEST', 'ROLES_USER'],

@@ -46,7 +46,7 @@
     <div class="row mb-3">	
       <div class="col-lg-3 col-xl-3" *ngFor="let book of books" >
         <!-- listado de libros -->
-        <nb-card class="cards card-shadow" [nbSpinner]="loading"  nbSpinnerStatus="primary">
+        <nb-card class="cards card-shadow" >
           <nb-card-header class="p-0 cards-top">
             <a  href="javascript:void(0)" (click)="detail(book.id)"><img class="card-img-top" src="/assets/images/empty.png"></a>
             <!-- <a (click)="detail(book.id)" ><img class="card-img-top" src="/assets/images/empty.png"/></a> -->

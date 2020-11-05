@@ -6,13 +6,23 @@
 <div id="about" class="container-fluid">
     <div class="row">
       <div class="col-sm-8">
-        <h2>About Company Page</h2><br>
-        <h4>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</h4><br>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-        <br><button class="btn btn-light border border-secondary btn-lg">Get in Touch</button>
+        <h2>Un poco de nosotros</h2><br>
+        <h4>Somos un grupo de amigos, que tenemos algo en común, y por lo que decidimos emprender en este maravilloso mundo de los libros. Todos somos fanáticos de los
+          libros y cuentos en general, no conocemos desde la univesidad y fue ahí donde descubrimos esta pasión por los libros.
+        </h4><br>
+        <p>Este proyecto nacio en la universidad, todos muy fanaticos de los libros, pero no lo notabamos en la universidad y los estudiantes en general, por 
+          eso es que un día nos pusimos a pensar una manera de fomentar la lectura entre los estudiantes. Primero nos postulamos para hacernos cargo de la biblioteca y al mismo 
+          tiempo empezamos a vender libros de forma particular, si bien tuvo repercusión entre los estudiantes, aún faltaba mucho. Luego se nos ocurrio, porque en vez de 
+          centrarnos solo en el ambito universitario?, ahi fue que se nos ocurrio la idea de una web para libros, de esta manera fomentabamos los libros no solo a estudiantes sino 
+          que ahora nuestro rango abarcativo era mucho mas amplio. Bueno y volvemos a la actualidad y aqui estamos.</p>
+        <br>
+        <button nbButton routerLink='/landing/contacto' routerLinkActive="active" class="btn btn-light border border-secondary btn-lg">Contáctanos</button>
+        <!-- <button nbButton ghost routerLink='/landing/contacto' routerLinkActive="active" status="info">Contáctanos</button> -->
+        <!-- <a nbButton ghost routerLink='/landing/contacto' routerLinkActive="active" class="ml-1">Contáctanos</a> -->
       </div>
       <div class="col-sm-4">
-        <span class="glyphicon glyphicon-signal logo"></span>
+        <!-- <span class="glyphicon glyphicon-signal logo"></span> -->
+        <img [src]="about_book.url" width="100%">
       </div>
     </div>
   </div>
@@ -20,13 +30,18 @@
   <div class="container-fluid bg-grey">
     <div class="row">
       <div class="col-sm-4">
-        <span class="glyphicon glyphicon-globe logo slideanim"></span>
+        <!-- <span class="glyphicon glyphicon-globe logo slideanim"></span> -->
+        <img [src]="about_team.url" width="100%">
       </div>
       <div class="col-sm-8">
-        <h2>Our Values</h2><br>
-        <h4><strong>MISSION:</strong> Our mission lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</h4><br>
-        <p><strong>VISION:</strong> Our vision Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        <h2>Nuestros valores</h2><br>
+        <h4><strong>MISIÓN:</strong> Nuestra misión en tiempos en tiempos modernos, en los que los libros estan siendo reemplados por lo digital, es ofrecer la alternativa 
+          clasica de leer un libro fisico e inspirar a las personas a rememorar esa sensación de leer un libro en cualquier lado.
+        </h4><br>
+        <p><strong>VISION:</strong> Nuestra  visión se basa en 3 ejes fundamentales, el primero es ofrecer libros de calidad para nuestros clientes, tanto para su 
+          satisfacción, como la nuestra para saber que hacemos bien las cosas. Segundo, la atención al cliente y el seguimiento, hácer saber a nustros clientes que siempre 
+          responderemos sus dudas y problemas, de forma que podamos resolverlo de manera rapida. Y finalmente tercero, estr muy activos en redes sociales, saber que pueden contactarnos por eos medios y participar en multiples sorteo que 
+          hacemos de manera mensual y anual.</p>
       </div>
     </div>
   </div>

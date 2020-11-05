@@ -27,6 +27,8 @@ export class UserService extends UserData {
 private images = {
   logo: { name: 'Logo', url: 'assets/images/logo.png' },
   user: { name: 'User', url: 'assets/images/user-empty.png' },
+  about_us_book: { name: 'aboutBook', url: 'assets/images/about_us_book.jpg' },
+  about_us_team: { name: 'aboutTeam', url: 'assets/images/about_us_team.jpg' },
   
 };
 
