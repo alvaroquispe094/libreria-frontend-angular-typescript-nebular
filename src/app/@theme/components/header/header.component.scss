@@ -90,7 +90,7 @@
 
 @media only screen and (min-width: 767px) and (max-width: 1068px) { 
   /* Here are some changes*/
-  nb-layout-header nb-actions nb-action a { padding: 1px 1px !Important; }
+  nb-layout-header nb-actions nb-action a { padding: 0!important }
 }
 
 /* From 768 to 1023 px */
